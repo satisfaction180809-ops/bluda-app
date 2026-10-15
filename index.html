@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="description" content="Блюда — коллекция из 100 рецептов со всего мира.">
+  <title>Блюда — вкус начинается здесь</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#" aria-label="Блюда — главная">
+      <span class="logo-icon">✳</span>
+      <span>блюда<span class="logo-dot">.</span></span>
+    </a>
+    <nav class="top-nav">
+      <a href="#catalog">Рецепты</a>
+      <a href="#categories">Категории</a>
+      <a href="#favorites">Избранное</a>
+    </nav>
+    <a class="header-button" href="#catalog">Найти блюдо <span>↗</span></a>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          ТВОЯ КУЛИНАРНАЯ КОЛЛЕКЦИЯ
+        </div>
+        <h1>
+          Вкус начинается<br>
+          <span>с вдохновения.</span>
+        </h1>
+        <p class="hero-description">
+          Открывай кухни мира, находи новые любимые блюда
+          и готовь с удовольствием.
+        </p>
+        <a href="#catalog" class="primary-button">
+          Открыть рецепты <span>↓</span>
+        </a>
+        <div class="hero-note">
+          <span>✳</span>
+          100 идей для твоего стола
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85"
+            alt="Аппетитная свежая еда"
+            class="hero-image"
+          >
+          <div class="image-label">
+            <span class="label-star">✳</span>
+            <div>
+              <strong>Готовь с душой</strong>
+              <span>Открывай новое каждый день</span>
+            </div>
+          </div>
+        </div>
+        <div class="decor decor-one">✳</div>
+        <div class="decor decor-two">✦</div>
+      </div>
+    </section>
+    <section class="category-section" id="categories">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">ВЫБИРАЙ ПО НАСТРОЕНИЮ</span>
+          <h2>Что приготовим?</h2>
+        </div>
+        <p>От быстрого завтрака до особенного ужина.</p>
+      </div>
+      <div class="category-list" id="categories-list">
+        <button class="category-chip active" data-category="Все">
+          <span>✳</span> Все блюда
+        </button>
+        <button class="category-chip" data-category="Завтрак">
+          <span>☀</span> Завтраки
+        </button>
+        <button class="category-chip" data-category="Обед">
+          <span>◒</span> Обеды
+        </button>
+        <button class="category-chip" data-category="Ужин">
+          <span>◐</span> Ужины
+        </button>
+        <button class="category-chip" data-category="Десерт">
+          <span>♡</span> Десерты
+        </button>
+        <button class="category-chip" data-category="Фастфуд">
+          <span>✦</span> Фастфуд
+        </button>
+        <button class="category-chip" data-category="ПП">
+          <span>❋</span> ПП
+        </button>
+      </div>
+    </section>
+    <section class="catalog-section" id="catalog">
+      <div class="section-heading catalog-heading">
+        <div>
+          <span class="section-kicker">СОБРАНО С ЛЮБОВЬЮ</span>
+          <h2>Твоя книга рецептов<span class="heading-dot">.</span></h2>
+        </div>
+        <span class="recipe-count" id="recipe-count">Загружаем рецепты...</span>
+      </div>
+      <div class="catalog-tools">
+        <label class="search-box">
+          <span class="search-icon">⌕</span>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Найти блюдо, страну или ингредиент..."
+            autocomplete="off"
+          >
+          <kbd>⌘ K</kbd>
+        </label>
+        <div class="filter-group">
+          <select id="country-filter" aria-label="Фильтр по стране">
+            <option value="">Все страны</option>
+          </select>
+          <select id="difficulty-filter" aria-label="Фильтр по сложности">
+            <option value="">Любая сложность</option>
+            <option value="Легко">Легко</option>
+            <option value="Средне">Средне</option>
+            <option value="Сложно">Сложно</option>
+          </select>
+        </div>
+      </div>
+      <div class="recipe-grid" id="recipe-grid">
+        <div class="loading-state">
+          <span class="loading-spinner"></span>
+          <p>Готовим каталог...</p>
+        </div>
+      </div>
+      <div class="empty-state hidden" id="empty-state">
+        <span>♡</span>
+        <h3>Пока ничего не найдено</h3>
+        <p>Попробуй изменить запрос или фильтры.</p>
+        <button class="secondary-button" id="reset-filters">
+          Сбросить фильтры
+        </button>
+      </div>
+      <div class="catalog-footer">
+        <span>Хорошая еда — маленькое удовольствие каждый день.</span>
+        <span>Сделано с <span class="footer-heart">♥</span></span>
+      </div>
+    </section>
+    <section class="favorites-anchor" id="favorites"></section>
+  </main>
+  <footer class="site-footer">
+    <a class="logo footer-logo" href="#">
+      <span class="logo-icon">✳</span>
+      <span>блюда<span class="logo-dot">.</span></span>
+    </a>
+    <p>Находи вдохновение. Готовь своё.</p>
+    <span class="footer-year">© 2026</span>
+  </footer>
+  <div class="modal hidden" id="recipe-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-panel">
+      <button class="modal-close" id="modal-close" aria-label="Закрыть">
+        ×
+      </button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+  <script src="./recipes.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
